@@ -21,7 +21,8 @@ RUN pip3 install --upgrade pip && pip3 install pysocks ehforwarderbot efb-telegr
        https://github.com/ehForwarderBot/efb-wechat-slave/archive/master.zip \
        https://github.com/milkice233/efb-qq-slave/archive/master.zip \
        https://github.com/milkice233/efb-qq-plugin-mirai/archive/master.zip \
-    && pip install python-telegram-bot[socks] \
+    && pip3 install python-telegram-bot[socks] efb-telegram-master[tgs] \
+    && pip3 install efb-patch-middleware efb-mp-instantview-middleware efb-msg_blocker-middleware efb-online-middleware efb-notice-middleware \
     && rm -rf /tmp/* /var/cache/apk/* /var/lib/apk/lists/*
 
 WORKDIR .
