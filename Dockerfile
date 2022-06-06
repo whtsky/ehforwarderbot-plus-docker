@@ -10,7 +10,7 @@ ENV HTTPS_PROXY ""
 
 RUN apt-get update -y
 RUN apt-get install -y python3 python3-pip python3-setuptools python3-yaml ffmpeg libcairo2-dev libcairo2 nano
-RUN apt-get install -y libmagic-dev ffmpeg
+RUN apt-get install -y libmagic-dev ffmpeg git
 RUN ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
 RUN echo "Asia/Shanghai" > /etc/timezone
 
