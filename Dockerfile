@@ -12,7 +12,7 @@ RUN apt-get update -y
 RUN apt-get install -y python3 python3-pip python3-setuptools python3-yaml ffmpeg libcairo2-dev libcairo2 nano
 RUN apt-get install -y libmagic-dev ffmpeg
 RUN ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
-RUN cho "Asia/Shanghai" > /etc/timezone
+RUN echo "Asia/Shanghai" > /etc/timezone
 
 RUN pip3 install --upgrade pip && pip3 install pysocks ehforwarderbot efb-telegram-master \
        https://github.com/ehForwarderBot/efb-wechat-slave/archive/master.zip \
