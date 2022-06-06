@@ -1,4 +1,4 @@
-FROM alpine:latest
+FROM ubuntu:22.04
 MAINTAINER XIA
 
 ENV LANG C.UTF-8
@@ -8,14 +8,11 @@ ENV EFB_PARAMS ""
 ENV EFB_PROFILE "default"
 ENV HTTPS_PROXY ""
 
-RUN apk --update upgrade \
-    && apk --update add --no-cache gcc tzdata ca-certificates \
-       ffmpeg libmagic python3 git \
-       tiff libwebp freetype lcms2 openjpeg py3-olefile openblas \
-       py3-numpy py3-pillow py3-cryptography py3-decorator cairo py3-pip \
-       musl-dev python3-dev jpeg-dev zlib-dev \
-    && ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime \
-    && echo "Asia/Shanghai" > /etc/timezone
+RUN apt-get update -y
+RUN apt-get install -y python3 python3-pip python3-setuptools python3-yaml ffmpeg libcairo2-dev libcairo2 nano
+RUN apt-get install -y libmagic-dev ffmpeg
+RUN ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
+RUN cho "Asia/Shanghai" > /etc/timezone
 
 RUN pip3 install --upgrade pip && pip3 install pysocks ehforwarderbot efb-telegram-master \
        https://github.com/ehForwarderBot/efb-wechat-slave/archive/master.zip \
