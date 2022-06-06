@@ -13,7 +13,7 @@ RUN apk --update upgrade \
        ffmpeg libmagic python3 git \
        tiff libwebp freetype lcms2 openjpeg py3-olefile openblas \
        py3-numpy py3-pillow py3-cryptography py3-decorator cairo py3-pip \
-       musl-dev python3-dev \
+       musl-dev python3-dev jpeg-dev zlib-dev \
     && ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime \
     && echo "Asia/Shanghai" > /etc/timezone
 
