@@ -10,7 +10,7 @@ ENV HTTPS_PROXY ""
 
 RUN apk --update upgrade \
     && apk --update add --no-cache gcc tzdata ca-certificates \
-       ffmpeg libmagic python3 \
+       ffmpeg libmagic python3 git \
        tiff libwebp freetype lcms2 openjpeg py3-olefile openblas \
        py3-numpy py3-pillow py3-cryptography py3-decorator cairo py3-pip \
        musl-dev python3-dev \
