@@ -14,11 +14,11 @@ RUN apt-get install -y libmagic-dev ffmpeg git
 RUN ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
 RUN echo "Asia/Shanghai" > /etc/timezone
 
-RUN pip3 install --upgrade pip && pip3 install pysocks ehforwarderbot efb-telegram-master \
+RUN pip3 install --upgrade pip && pip3 install python-telegram-bot[socks] efb-telegram-master[tgs] \
+    && pip3 install ehforwarderbot efb-patch-middleware efb-mp-instantview-middleware efb-msg_blocker-middleware efb-online-middleware efb-notice-middleware efb-voice_recog-middleware efb-gpg-middleware \
+    && pip3 install \
        https://github.com/ehForwarderBot/efb-wechat-slave/archive/master.zip \
        https://github.com/ehForwarderBot/efb-qq-plugin-go-cqhttp/archive/master.zip \
-    && pip3 install python-telegram-bot[socks] efb-telegram-master[tgs] \
-    && pip3 install efb-patch-middleware efb-mp-instantview-middleware efb-msg_blocker-middleware efb-online-middleware efb-notice-middleware efb-voice_recog-middleware efb-gpg-middleware \
     && rm -rf /tmp/* /var/cache/apk/* /var/lib/apk/lists/*
 
 WORKDIR .
